@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acquaintance — CICI AKWE &amp; Colors of Unity 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f7ff; --fg:#0a2148; --dim:#4c6084; --line:#d3e0f5; --accent:#0f3e88; --sky:#2a86e8; --chip:#e1ecfb;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081634; --fg:#eaf1ff; --dim:#94a7cc; --line:#1c2f5e; --accent:#7fb8ff; --sky:#5aa3f5; --chip:#12244d;}}
+:root[data-theme="dark"]{--bg:#081634; --fg:#eaf1ff; --dim:#94a7cc; --line:#1c2f5e; --accent:#7fb8ff; --sky:#5aa3f5; --chip:#12244d;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.5}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:#0a2148}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+nav .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:600;letter-spacing:-.01em;line-height:1.15}
+nav .logo small{display:block;font-weight:400;font-size:.75rem;color:#a9c4f0}
+.mark{width:38px;height:38px;border-radius:50%;background:#fff;overflow:hidden;position:relative;display:grid;place-items:center;font-family:'Instrument Serif',serif;font-style:italic;color:#0f3e88;flex:none}
+.mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;font-size:.92rem}
+nav ul a{display:block;padding:8px 14px;border-radius:8px;text-decoration:none;color:#cfe0fb}
+nav ul a:hover,nav ul a[aria-current]{background:rgba(255,255,255,.14);color:#fff}
+
+.hero{padding:clamp(56px,11vw,110px) 0 clamp(44px,7vw,80px);background:linear-gradient(160deg,rgba(15,62,136,.86),rgba(10,33,72,.96)),url('cover.jpg') center/cover no-repeat #0a2148;color:#fff;border-bottom:4px solid var(--sky)}
+.hero .chip{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;font-size:.85rem;margin-bottom:26px}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(2.8rem,9vw,7rem);line-height:.96;letter-spacing:-.02em;margin:0}
+.hero h1 em{color:#8cc0ff}
+.hero p{margin:24px 0 0;color:#cfe0fb;font-size:1.05rem}
+
+.intro{padding:56px 0 48px;display:grid;grid-template-columns:200px 1fr;gap:32px}
+@media(max-width:760px){.intro{grid-template-columns:1fr;gap:16px}}
+.intro h2,.albums>h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.9rem;line-height:1.1;margin:0}
+.intro p{margin:0;font-family:'Instrument Serif',serif;font-size:clamp(1.3rem,2.6vw,1.75rem);line-height:1.4;max-width:34em}
+.intro .strip{display:flex;height:6px;border-radius:6px;overflow:hidden;max-width:220px;margin-top:26px}
+.intro .strip i{flex:1}
+.intro .sign{display:block;margin-top:18px;font-size:.95rem;color:var(--dim);font-family:'Space Grotesk',sans-serif}
+
+.albums{border-top:1px solid var(--line);padding:44px 0 72px}
+.albums>h2{margin-bottom:6px}
+.albums>p{margin:0 0 28px;color:var(--dim);font-size:.95rem}
+.ev{margin-top:44px}.ev:first-of-type{margin-top:0}
+.ev>h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.9rem;margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.ev h4{font-size:1rem;font-weight:600;color:var(--accent);margin:26px 0 14px;display:flex;align-items:center;gap:10px}
+.ev h4::after{content:"";flex:1;height:1px;background:var(--line)}
+.card .n.v::before{content:"\25B6  ";font-size:.7em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:28px 20px}
+.card{all:unset;display:block;cursor:pointer;box-sizing:border-box}
+.card:focus-visible{outline:2px solid var(--sky);outline-offset:4px;border-radius:12px}
+.card .cv{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:linear-gradient(150deg,var(--accent),#0a2148);display:grid;place-items:center;font-family:'Instrument Serif',serif;font-style:italic;font-size:1.3rem;color:#fff}
+.card .cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card:hover .cv img{transform:scale(1.04)}
+.card .n{position:absolute;right:10px;bottom:10px;background:rgba(10,33,72,.78);color:#fff;border-radius:999px;padding:3px 11px;font-size:.78rem}
+.card h3{margin:12px 0 2px;font-size:1.1rem;font-weight:500;letter-spacing:-.01em;color:var(--fg)}
+.card p{margin:0;color:var(--dim);font-size:.9rem}
+
+footer{background:#0a2148;color:#a9c4f0;border-top:4px solid var(--sky);padding:40px 0 60px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:.9rem}
+footer q{font-family:'Instrument Serif',serif;font-size:1.4rem;color:#fff;quotes:none}
+
+/* gallery + lightbox */
+.ov{position:fixed;inset:0;z-index:100;background:#081634;display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.ov.open{display:flex}
+.ov .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.12)}
+.ov .bar h3{margin:0;color:#fff;font-family:'Instrument Serif',serif;font-weight:400;font-size:1.5rem}
+.x{background:rgba(255,255,255,.14);border:none;color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer;line-height:1;flex:none}
+.x:hover{background:rgba(255,255,255,.26)}
+.ov .sc{flex:1;overflow-y:auto;padding:18px 18px 40px}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:1000px;margin:0 auto}
+@media(min-width:600px){.shots{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.shots{grid-template-columns:repeat(4,1fr)}}
+.shot{position:relative;aspect-ratio:1;border-radius:8px;overflow:hidden;background:#12244d;cursor:pointer}
+.shot img,.shot video{width:100%;height:100%;object-fit:cover;display:block}
+.shot .pl{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.shot .pl span{width:38px;height:38px;border-radius:50%;background:rgba(10,33,72,.7);border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;color:#fff;font-size:.8rem}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(4,10,24,.96);display:none;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 16px env(safe-area-inset-bottom,0px)}
+.lb.open{display:flex}
+.lb .x{position:absolute;top:calc(16px + env(safe-area-inset-top,0px));right:16px;z-index:2}
+.lb .nv{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);border:none;color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.4rem;cursor:pointer;z-index:2}
+.lb .pv{left:14px}.lb .nx{right:14px}
+.lb .st{max-width:min(94vw,1100px);display:flex;align-items:center;justify-content:center}
+.lb .st img,.lb .st video{max-width:100%;max-height:88vh;border-radius:6px;display:block;object-fit:contain}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="mark">IS<img src="logo.jpg" alt="ISUFST logo" onerror="this.remove()"></span><span>ISUFST<small>San Enrique Campus</small></span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="akwe.html" aria-current="page">Acquaintance</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>CICI AKWE &amp;<br><em>Colors of Unity</em> 2026</h1>
+    <p>San Enrique Campus</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h2>About the event</h2>
+    <div>
+      <p>CICI AKWE 2026 &amp; Colors of Unity 2026 brings the students together to meet, celebrate, and have fun. Through street wear, talents, dancing, and games, we honor what makes each of us different and what makes us one community.</p>
+      <div class="strip" aria-hidden="true"><i style="background:#e0576b"></i><i style="background:#f2a541"></i><i style="background:#e7c93d"></i><i style="background:#59b56c"></i><i style="background:#3f8fd6"></i><i style="background:#7a5fc7"></i></div>
+      <span class="sign">Different colors, one community, one unforgettable journey 🌈✨</span>
+    </div>
+  </section>
+
+  <section class="albums">
+    <h2>Albums</h2>
+    <p>Tap an album to open it.</p>
+    <div id="days"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <q>Science serves the sea, technology serves the future.</q>
+    <span>Iloilo State University of Fisheries Science and Technology<br>San Enrique Campus</span>
+  </div>
+</footer>
+
+<div class="ov" id="ov">
+  <div class="bar"><h3 id="ovT">Album</h3><button class="x" onclick="closeGallery()" aria-label="Close">&times;</button></div>
+  <div class="sc"><div class="shots" id="shots"></div></div>
+</div>
+<div class="lb" id="lb">
+  <button class="x" onclick="closeLb()" aria-label="Close">&times;</button>
+  <button class="nv pv" onclick="step(-1)" aria-label="Previous">&#8249;</button>
+  <div class="st" id="st"></div>
+  <button class="nv nx" onclick="step(1)" aria-label="Next">&#8250;</button>
+</div>
+
+<script>
+/* ALBUM DATA: add or remove lines in each photos:[ ... ] list.
+   { type:"image", src:"file.jpg" }  or  { type:"video", src:"file.mp4" } */
+var I=function(s){return{type:"image",src:s}}, V=function(s){return{type:"video",src:s}};
+var albums={
+  
+ d1morning:{
+  title:"Morning Program",
+  sub:"Photos",
+  cover:"cover.jpg",
+  photos:[
+    I("e1.jpg"),
+    I("e2.jpg"),
+    I("e3.jpg"),
+    I("e4.jpg"),
+    I("e5.jpg"),
+    I("e6.jpg"),
+    I("e7.jpg"),
+    I("e8.jpg"),
+    I("e9.jpg"),
+    I("e10.jpg"),
+    I("e11.jpg"),
+    I("e12.jpg"),
+    I("e13.jpg"),
+    I("e14.jpg"),
+    I("e15.jpg"),
+    I("e16.jpg"),
+    I("e17.jpg"),
+    I("e18.jpg"),
+    I("e19.jpg"),
+    I("e20.jpg")
+  ]
+},
+  
+ d1photos:{
+  title:"Street wear",
+  sub:"Photos",
+  cover:"cover.jpg",
+  photos:[
+    I("c1.jpg"),
+    I("c2.jpg"),
+    I("c3.jpg"),
+    I("c4.jpg"),
+    I("c5.jpg"),
+    I("c6.jpg"),
+    I("c7.jpg"),
+    I("c8.jpg"),
+    I("c9.jpg"),
+    I("c10.jpg"),
+    I("c11.jpg"),
+    I("c12.jpg"),
+    I("c13.jpg")
+  ]
+},
+d1winners:{
+  title:"IT talent",
+  sub:"Photos",
+  cover:"cover.jpg",
+  photos:[
+    I("d1.jpg"),
+    I("d2.jpg"),
+    I("d3.jpg"),
+    I("d4.jpg"),
+    I("d5.jpg"),
+    I("d6.jpg"),
+    I("d7.jpg"),
+    I("d8.jpg"),
+    I("d9.jpg"),
+    I("d10.jpg"),
+    I("d11.jpg"),
+    I("d12.jpg"),
+    I("d13.jpg"),
+    I("d14.jpg")
+  ]
+},
+ d1videos:{title:"ITQUAINT 2026 Highlights",
+ sub:"Videos",
+ cover:"cover.jpg",
+ photos:[V("1.mp4")]},
+ 
+ d2fun:{
+  title:"Laro ng Lahi",
+  sub:"Photos",
+  cover:"cove.jpg",
+  photos:[
+    I("f1.jpg"),
+    I("f2.jpg"),
+    I("f3.jpg"),
+    I("f4.jpg"),
+    I("f5.jpg"),
+    I("f6.jpg"),
+    I("f7.jpg"),
+    I("f8.jpg"),
+    I("f9.jpg"),
+    I("f10.jpg"),
+    I("f11.jpg"),
+
+  ]
+},
+ d2dancephotos:{
+  title:"Street Dancing & Field Demonstration",
+  sub:"Photos",
+  cover:"cover1.jpg",
+  photos:[
+    I("a1.jpeg"),
+    I("a2.jpeg"),
+    I("a3.jpeg"),
+    I("a4.jpeg"),
+    I("a5.jpeg"),
+    I("a6.jpeg"),
+    I("a7.jpeg"),
+    I("a8.jpeg"),
+    I("a9.jpeg"),
+    I("a10.jpeg"),
+    I("a11.jpeg"),
+    I("a12.jpeg"),
+    I("a13.jpeg"),
+    I("a14.jpeg"),
+    I("a15.jpeg"),
+    I("a16.jpeg"),
+    I("a17.jpeg")
+  ]
+},
+ d2dancevideos:{title:"Street Dancing & Field Demonstration",
+ sub:"Videos",
+ cover:"cover1.jpg",
+ photos:[
+ V("4.mp4"),
+ V("5.mp4")]},
+ d2mrmsphotos:{
+  title:"Mr. and Ms. Colors of Unity and the LGBTQIA+",
+  sub:"Photos",
+  cover:"cover2.jpg",
+  photos:[
+    I("b1.jpeg"),
+    I("b2.jpeg"),
+    I("b3.jpeg"),
+    I("b4.jpeg"),
+    I("b5.jpeg"),
+    I("b6.jpeg"),
+    I("b7.jpeg"),
+    I("b8.jpeg"),
+    I("b9.jpeg"),
+    I("b10.jpeg"),
+    I("b11.jpeg"),
+    I("b12.jpeg"),
+    I("b13.jpeg"),
+    I("b14.jpeg"),
+    I("b15.jpeg"),
+    I("b16.jpeg"),
+    I("b17.jpeg"),
+    I("b18.jpeg")
+  ]
+},
+ d2mrmsvideos:{
+   title:"Mr. and Ms. Colors of Unity and the LGBTQIA+",
+   sub:"Videos",
+   cover:"cover2.jpg",
+   photos:[V("2.mp4"),V("3.mp4"),V("6.mp4")]}
+};
+/* Which albums show under which event / day. Use label:"" for no day heading. */
+var events=[
+ {event:"CICI AKWE 2026",groups:[{label:"",keys:["d1morning","d1photos","d1winners","d1videos"]}]},
+ {event:"Colors of Unity 2026",groups:[
+   {label:"Day 1",keys:["d2fun","d2dancephotos","d2dancevideos"]},
+   {label:"Day 2",keys:["d2mrmsphotos","d2mrmsvideos"]}
+ ]}
+];
+var cur=null, idx=0;
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+var dw=document.getElementById('days');
+events.forEach(function(ev){
+  var sec=document.createElement('div'); sec.className='ev';
+  sec.innerHTML='<h3>'+esc(ev.event)+'</h3>';
+  ev.groups.forEach(function(gr){
+    if(gr.label) sec.insertAdjacentHTML('beforeend','<h4>'+esc(gr.label)+'</h4>');
+    var g=document.createElement('div'); g.className='grid';
+    gr.keys.forEach(function(k){
+      var a=albums[k], vid=a.photos.length>0&&a.photos[0].type==='video', b=document.createElement('button');
+      b.className='card';
+      b.innerHTML='<div class="cv">'+esc(a.title.split(' ')[0])+'<img src="'+a.cover+'" alt="" onerror="this.remove()"><span class="n'+(vid?' v':'')+'">'+a.photos.length+(vid?(a.photos.length===1?' video':' videos'):(a.photos.length===1?' photo':' photos'))+'</span></div><h3>'+esc(a.title)+'</h3><p>'+esc(a.sub)+'</p>';
+      b.addEventListener('click',function(){openGallery(k)});
+      g.appendChild(b);
+    });
+    sec.appendChild(g);
+  });
+  dw.appendChild(sec);
+});
+function openGallery(k){
+  cur=k; var a=albums[k], s=document.getElementById('shots');
+  document.getElementById('ovT').textContent=a.title; s.innerHTML=a.photos.length?'':'<p style="color:#a9c4f0;grid-column:1/-1;text-align:center">No photos added yet.</p>';
+  a.photos.forEach(function(p,i){
+    var d=document.createElement('div'); d.className='shot';
+    d.innerHTML=p.type==='video'?'<video src="'+p.src+'" muted playsinline preload="metadata"></video><div class="pl"><span>&#9654;</span></div>':'<img src="'+p.src+'" alt="" loading="lazy">';
+    d.addEventListener('click',function(){openLb(i)}); s.appendChild(d);
+  });
+  document.getElementById('ov').classList.add('open'); document.body.style.overflow='hidden';
+}
+function closeGallery(){document.getElementById('ov').classList.remove('open');document.body.style.overflow=''}
+function drawLb(){
+  var p=albums[cur].photos[idx], st=document.getElementById('st'); st.innerHTML='';
+  var e=document.createElement(p.type==='video'?'video':'img'); e.src=p.src;
+  if(p.type==='video'){e.controls=true;e.autoplay=true;e.playsInline=true}else e.alt='';
+  st.appendChild(e);
+}
+function openLb(i){idx=i;drawLb();document.getElementById('lb').classList.add('open')}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.getElementById('st').innerHTML=''}
+function step(d){var n=albums[cur].photos.length;idx=(idx+d+n)%n;drawLb()}
+document.addEventListener('keydown',function(e){
+  if(document.getElementById('lb').classList.contains('open')){
+    if(e.key==='Escape')closeLb(); if(e.key==='ArrowRight')step(1); if(e.key==='ArrowLeft')step(-1);
+  }else if(e.key==='Escape')closeGallery();
+});
+</script>
+</body>
+</html>
