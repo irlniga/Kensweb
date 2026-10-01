@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ISUFST San Enrique Campus — Campus Leadership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f2f7ff; --fg:#0a2148; --dim:#4c6084; --line:#d3e0f5; --accent:#0f3e88; --sky:#2a86e8; --chip:#e1ecfb;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081634; --fg:#eaf1ff; --dim:#94a7cc; --line:#1c2f5e; --accent:#7fb8ff; --sky:#5aa3f5; --chip:#12244d;}}
+:root[data-theme="dark"]{--bg:#081634; --fg:#eaf1ff; --dim:#94a7cc; --line:#1c2f5e; --accent:#7fb8ff; --sky:#5aa3f5; --chip:#12244d;}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.5}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:#0a2148}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+nav .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:600;letter-spacing:-.01em;line-height:1.15}
+nav .logo small{display:block;font-weight:400;font-size:.75rem;color:#a9c4f0}
+.mark{width:38px;height:38px;border-radius:50%;background:#fff;overflow:hidden;position:relative;display:grid;place-items:center;font-family:'Instrument Serif',serif;font-style:italic;color:#0f3e88;flex:none}
+.mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0;font-size:.92rem}
+nav ul a{display:block;padding:8px 14px;border-radius:8px;text-decoration:none;color:#cfe0fb}
+nav ul a:hover,nav ul a[aria-current]{background:rgba(255,255,255,.14);color:#fff}
+
+.hero{padding:clamp(56px,11vw,120px) 0 clamp(44px,7vw,84px);background:linear-gradient(160deg,#0f3e88,#0a2148);color:#fff;border-bottom:4px solid var(--sky)}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(3.2rem,11vw,8.5rem);line-height:.92;letter-spacing:-.02em;margin:0 0 28px}
+.hero h1 em{color:#8cc0ff}
+.hero p{max-width:46ch;font-size:1.15rem;color:#cfe0fb;margin:0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px;font-size:.85rem}
+
+section{border-top:1px solid var(--line);padding:44px 0 56px;display:grid;grid-template-columns:200px 1fr;gap:32px}
+@media(max-width:760px){section{grid-template-columns:1fr;gap:20px}}
+section>h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.9rem;line-height:1.1;margin:0;position:sticky;top:80px;align-self:start}
+@media(max-width:760px){section>h2{position:static}}
+section>h2 small{display:block;font-family:'Space Grotesk',sans-serif;font-size:.85rem;color:var(--dim);margin-top:8px}
+
+.row{display:grid;grid-template-columns:72px 1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);transition:padding-left .2s}
+.row:first-child{padding-top:0}
+.row:hover{padding-left:10px}
+.row h3{margin:0;font-size:1.25rem;font-weight:500;letter-spacing:-.01em}
+.row p{margin:2px 0 0;color:var(--dim);font-size:.95rem}
+.row .tag{font-size:.82rem;color:var(--accent);background:var(--chip);border-radius:999px;padding:4px 12px;white-space:nowrap}
+@media(max-width:560px){.row{grid-template-columns:56px 1fr}.row .tag{display:none}}
+
+.ph{width:72px;height:72px;border-radius:50%;overflow:hidden;background:var(--chip);display:grid;place-items:center;font-family:'Instrument Serif',serif;font-size:1.5rem;color:var(--accent);position:relative}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:560px){.ph{width:56px;height:56px}}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:22px 16px}
+.tile .sq{aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--chip);display:grid;place-items:center;font-family:'Instrument Serif',serif;font-size:2.2rem;color:var(--accent);position:relative}
+.tile .sq img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile h4{margin:10px 0 0;font-size:.95rem;font-weight:500;line-height:1.3}
+.tile p{margin:2px 0 0;font-size:.85rem;color:var(--dim)}
+
+.sub{font-size:.95rem;color:var(--dim);margin:30px 0 16px}
+.sub:first-child{margin-top:0}
+
+footer{background:#0a2148;color:#a9c4f0;border-top:4px solid var(--sky);padding:40px 0 60px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:.9rem}
+footer q{font-family:'Instrument Serif',serif;font-size:1.4rem;color:#fff;quotes:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="mark">IS<img src="logo.jpg" alt="ISUFST logo" onerror="this.remove()"></span><span>ISUFST<small>San Enrique Campus</small></span></a>
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="akwe.html">Acquaintance</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1>Campus<br><em>Leadership</em></h1>
+    <p>The people who lead Iloilo State University of Fisheries Science and Technology, San Enrique Campus.</p>
+    <div class="meta"><span class="chip">San Enrique, Iloilo</span><span class="chip">Campus est. 2026</span><span class="chip">4 colleges</span></div>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <q>Science serves the sea, technology serves the future.</q>
+    <span>Iloilo State University of Fisheries Science and Technology<br>San Enrique Campus</span>
+  </div>
+</footer>
+
+<script>
+var P=function(img,name,role,tag){return{img:img,name:name,role:role,tag:tag}};
+var rows=[
+ {id:'university',title:'University',note:'Office of the President',list:[P('1.webp','Dr. Nordy D. Siason Jr.','University President')]},
+ {id:'campus',title:'Campus',note:'Campus administration',list:[P('2.jpg','Dr. Michael B. Dizon','Campus Administrator'),P('3.jpeg','Melby P. Parreño','Administrative Officer')]},
+ {id:'colleges',title:'Colleges',note:'Deans of each college',list:[
+  P('4.jpeg','Dr. Wenda D. Panes','Dean, Informatics & Computing Innovations','Informatics'),
+  P('5.jpeg','Dr. Rene T. Estomo','Dean, College of Education','Education'),
+  P('6.jpeg','Noli L. Gerona, PhD','Dean, College of Agriculture','Agriculture'),
+  P('7.jpeg','Janice H. Ching','Dean, Business Management & Sustainable Development','Business')]}
+];
+var faculty=[
+  P('4.jpeg','Dr. Wenda D. Panes','Dean'),
+  P('9.jpg','Instr. Dave Allan Tagacay','Instructor'),
+  P('10.jpg','Dr. Wenna J. Bulnes','Faculty'),
+  P('11.jpg','Dr. Analiza G. Alingalan','Faculty'),
+  P('12.jpg','Dr. Dythne P. Dacudao','Faculty'),
+  P('13.jpg','Dr. Ian P. Sugatan','Faculty'),
+  P('14.jpeg','Instr. Ivan Silvestre','Instructor'),
+  P('15.jpeg','Andrea Delos Santos','Staff'),
+  P('16.jpeg','Michael Borcillo','Staff'),
+  P('17.jpeg','Dwayn Padernal','Staff')
+
+];
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function ini(n){return n.replace(/^(Dr\.|Instr\.)\s*/,'').replace(/,.*$/,'').split(' ').filter(Boolean).map(function(w){return w[0]}).slice(0,1).concat(n.replace(/,.*$/,'').split(' ').slice(-1)[0][0]).join('')}
+function img(p){return '<img src="'+p.img+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.remove()">'}
+var h='';
+rows.forEach(function(s){
+  h+='<section id="'+s.id+'"><h2>'+s.title+'<small>'+s.note+'</small></h2><div>';
+  s.list.forEach(function(p){
+    h+='<div class="row"><div class="ph">'+ini(p.name)+img(p)+'</div><div><h3>'+esc(p.name)+'</h3><p>'+esc(p.role)+'</p></div>'+(p.tag?'<span class="tag">'+p.tag+'</span>':'')+'</div>';
+  });
+  h+='</div></section>';
+});
+h+='<section id="faculty"><h2>Faculty<small>College of Informatics &amp; Computing Innovations</small></h2><div class="grid">';
+faculty.forEach(function(p){
+  h+='<div class="tile"><div class="sq">'+ini(p.name)+img(p)+'</div><h4>'+esc(p.name)+'</h4><p>'+p.role+'</p></div>';
+});
+h+='</div></section>';
+document.getElementById('app').innerHTML=h;
+</script>
+</body>
+</html>
